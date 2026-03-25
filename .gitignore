@@ -1,0 +1,13 @@
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+.DS_Store
+
+# Typst cache (local)
+.typst/
+
+# Editor
+.vscode/
