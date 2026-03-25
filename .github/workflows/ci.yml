@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  compile-examples:
+    name: Compile Typst examples
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Compile examples
+        run: |
+          typst compile examples/overlay.typ --root .
+          typst compile examples/fit.typ --root .
+          typst compile examples/multiseries-legend.typ --root .
+          typst compile examples/errorbars.typ --root .
+          typst compile examples/log-grid.typ --root .
